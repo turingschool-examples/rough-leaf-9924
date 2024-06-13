@@ -1,8 +1,8 @@
 # Supermarket Sweep
 
-This repository requires and has been tested on Ruby v3.2.2 and is based on Rails 7.1.2.
+This repository requires and has been tested on Ruby v3.2.2 and is based on Rails 7.1.3.
 
-RSpec and Shoulda-Matchers have been installed and set up.
+**RSpec** and **Shoulda-Matchers** have been installed and set up.
 
 ## Setup
 
@@ -43,9 +43,7 @@ When you run `bundle exec rspec` you should have 2 passing tests.
 
 ## Challenge Description
 
-Supermarket Sweep is an app that tracks Supermarkets, the customers that they serve and the items that those customers purchase. 
-
-
+Supermarket Sweep is an app that tracks Supermarkets, the customers that they serve and the items that those customers purchase.
 
 * Supermarkets have a name and a location.
   * ex: name: 'Corner Market', location: '123 Food St.'
@@ -55,7 +53,8 @@ Supermarket Sweep is an app that tracks Supermarkets, the customers that they se
   * ex: name: 'Banana', price: 1 (this can be interpreted as $1. For simiplicity, we recommend storing price as an integer)
 
 ## Model Setup
-* Supermarkets have many Items. 
+
+* Supermarkets have many Items.
 * Items belong to a Supermarket.
 * Customers have many Items.
 * Items have many Customers.
