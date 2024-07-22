@@ -8,3 +8,12 @@
     </li>
   <% end %>
 </ul>
+
+<h2>Add Item</h2>
+<div class="add-item-form">
+  <%= form_with url: "/customers/#{@customer.id}/items", method: :post do %>
+    <%= label_tag :item_id, 'Item ID' %>
+    <%= text_field_tag :item_id %>
+    <%= submit_tag 'Add Item' %>
+  <% end %>
+</div>
