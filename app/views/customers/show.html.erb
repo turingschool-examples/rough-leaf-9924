@@ -8,3 +8,13 @@
 <p><%= item.supermarket.name %></p>
 <% end %>
 
+<div>
+  <h3>Add Items to Customer</h3>
+    <%= form_with url: "/customers/#{@customer.id}", method: :post, local: true do |form| %>
+      <div>
+        <%= form.label :add_item, "Add Item" %>
+        <%= form.text_field :add_item %>
+        <%= form.submit "Submit" %>
+      </div>
+    <% end %>
+</div>
