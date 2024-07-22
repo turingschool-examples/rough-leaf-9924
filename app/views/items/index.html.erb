@@ -1,0 +1,9 @@
+<h1>Item Index</h2>
+
+<div id = "main">
+    <% @items.each do |item| %>
+        <div id = "item-details">
+            <%= item.name %> - Price: <%= item.price %> - Supermarket: <%= item.supermarket.name %> - Sold: <%= item.number_sold%>
+        </div>
+    <% end %>
+</div>
