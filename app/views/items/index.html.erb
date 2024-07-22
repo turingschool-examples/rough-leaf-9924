@@ -1,0 +1,13 @@
+<h1>All Items</h1>
+<% @items.each do |item| %>
+  <section id= "item-<%= item.id %>">
+  <p><%= "Item: #{item.name}" %></p>
+  <p><%= "Price: $#{item.price}" %></p>
+  <p><%= "Supermarket Name: #{item.supermarket.name}" %></p>
+  <% if item.customer_count == 1 %>  
+    <p><%= "Belongs to #{item.customer_count} Customer" %></p>
+  <% else %>  
+    <p><%= "Belongs to #{item.customer_count} Customers" %></p>
+  </section>
+  <% end %>
+<% end %>
