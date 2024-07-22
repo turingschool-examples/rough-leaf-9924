@@ -11,10 +11,10 @@
 
   <div id="add-item">
     <h2> Add another item for this customer: </h2>
-    <%= form_with url: "/customers/#{@customer.id}", method: :get, local: true do |form| %>
+    <%= form_with url: "/customers/#{@customer.id}/items", method: :post, local: true do |form| %>
       <p> <%= form.label :item_id %> </p> 
-      <%= form.number_field :item_id %>
-      <p> <%= form.submit "Add Item", "/customers/#{@customer.id}/items", method: :post, params: {pet_id: pet.id } %> </p>
+      <p> <%= form.number_field :item_id %> </p>
+      <p> <%= form.submit "Add Item" %> </p>
     <% end %>
   </div>
 </div>
