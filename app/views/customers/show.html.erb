@@ -3,8 +3,8 @@
   <h2> __Items__ </h2>
   <%= @customer.items.each do |item| %>
     <p> 
-      Item Name: <%= item.name %>
-      Item Price: <%= item.price %>
+      Item Name: <%= item.name %> |
+      Item Price: <%= item.price %> |
       Item Supermarket: <%= item.supermarket.name %> 
     </p>
   <% end %>
