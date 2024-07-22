@@ -22,7 +22,7 @@ RSpec.describe "Customer Show Page", type: :feature do
       CustomerItem.create!(customer: customer_1, item: item_1)
       CustomerItem.create!(customer: customer_1, item: item_2)
 
-      visit "/customer/#{customer.id}"
+      visit "/customers/#{customer_1.id}"
 
       expect(page).to have_content("Name: #{customer_1.name}")
 
@@ -33,8 +33,8 @@ RSpec.describe "Customer Show Page", type: :feature do
       expect(page).to have_content("#{item_1.price}")
       expect(page).to have_content("#{item_2.price}")
 
-      expect(page).to have_content("#{item_1.supermarket}")     
-      expect(page).to have_content("#{item_2.supermarket}")     
+      expect(page).to have_content("#{item_1.supermarket.name}")     
+      expect(page).to have_content("#{item_2.supermarket.name}")     
     end
   end
 end
