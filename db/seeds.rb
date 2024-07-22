@@ -14,7 +14,7 @@
 @item3 = @supermarket1.items.create!(name: "Bueooogerss", price: 50)
 @item4 = @supermarket2.items.create!(name: "Burgers", price: 10)
 @item5 = @supermarket1.items.create!(name: "Beeaarrzzz", price: 50)
-@item6 = @supermarket2.itemscreate!(name: "Proper Number Twelve Irish Whiskey", price: 2)
+@item6 = @supermarket2.items.create!(name: "Proper Number Twelve Irish Whiskey", price: 2)
 
 
 @customer1 = Customer.create!(name: "Khabib")
