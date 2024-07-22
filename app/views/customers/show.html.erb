@@ -10,3 +10,14 @@
     </li>
   <% end %>
 </ul>
+
+<h2> Add Item </h2>
+<%= form_with url: "/customers/#{@customer.id}", method: :post, local: true do |f| %>
+    <div>
+      <%= label_tag :item_id, "Item ID" %>
+      <%= text_field_tag :item_id %>
+    </div>
+      <%= submit_tag "Add Item" %>
+
+<% end %>
+
