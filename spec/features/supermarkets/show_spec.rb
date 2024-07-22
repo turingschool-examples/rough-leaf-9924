@@ -1,11 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Supermarket, type: :model do
-  describe 'relationships' do
-    it { should have_many :items }
-    it { should have_many(:customers).through(:items) }
-  end
-
+RSpec.describe "the supermarket show page" do
   before(:each) do 
     @customer1 = Customer.create!(name: "Beavis")
     @customer2 = Customer.create!(name: "Butthead")
@@ -39,10 +34,22 @@ RSpec.describe Supermarket, type: :model do
     CustomerItem.create!(customer_id: @customer2.id, item_id: @item2.id)
   end
 
-  describe "instance methods" do
-    it "unique_customers" do
-      expect(@supermarket1.unique_customers).to eq([@customer1, @customer2, @customer3])
-      expect(@supermarket2.unique_customers).to eq([@customer1, @customer2])
-    end
+  # Extension
+  it "shows a unique list of customers that shopped at a supermarket" do
+    visit "/supermarkets/#{@supermarket1.id}"
+
+    expect(page).to have_content(@customer1.name)
+    expect(page).to have_content(@customer2.name)
+    expect(page).to have_content(@customer3.name)
+    expect(page).to_not have_content(@customer4.name)
+  end
+
+  it "shows a unique list of customers that shopped at another supermarket" do
+    visit "/supermarkets/#{@supermarket2.id}"
+
+    expect(page).to have_content(@customer1.name)
+    expect(page).to have_content(@customer2.name)
+    expect(page).to_not have_content(@customer3.name)
+    expect(page).to_not have_content(@customer4.name)
   end
 end
