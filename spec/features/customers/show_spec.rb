@@ -6,12 +6,12 @@ RSpec.describe 'customers show' do
     @supermarket1 = Supermarket.create!(name: "Khabib's Market", location: "Just send me location." )
     @supermarket2 = Supermarket.create!(name: "Acutal Market", location: "12345 Actual Location Avenue ")
 
-    @item1 = @supermarket1.create!(name: "Tap Like Chicken", price: 100)
-    @item2 = @supermarket2.create!(name: "Actual Chicken", price: 5)
-    @item3 = @supermarket1.create!(name: "Bueooogerss", price: 50)
-    @item4 = @supermarket2.create!(name: "Burgers", price: 10)
-    @item5 = @supermarket1.create!(name: "Beeaarrzzz", price: 50)
-    @item6 = @supermarket2.create!(name: "Proper Number Twelve Irish Whiskey", price: 2)
+    @item1 = @supermarket1.items.create!(name: "Tap Like Chicken", price: 100)
+    @item2 = @supermarket2.items.create!(name: "Actual Chicken", price: 5)
+    @item3 = @supermarket1.items.create!(name: "Bueooogerss", price: 50)
+    @item4 = @supermarket2.items.create!(name: "Burgers", price: 10)
+    @item5 = @supermarket1.items.create!(name: "Beeaarrzzz", price: 50)
+    @item6 = @supermarket2.items.create!(name: "Proper Number Twelve Irish Whiskey", price: 2)
 
     @customer1 = Customer.create!(name: "Khabib")
     @customer2 = Customer.create!(name: "Islam")
@@ -34,7 +34,7 @@ RSpec.describe 'customers show' do
         
         visit "/customers/#{@customer1.id}"
 
-        expect(page).to have_content("Name: #{@customer1.name}")
+        expect(page).to have_content("#{@customer1.name} Show Page")
         expect(page).to have_content("__Items__")
         expect(page).to have_content("Item Name: #{@item1.name}")
         expect(page).to have_content("Item Price: #{@item1.price}")
