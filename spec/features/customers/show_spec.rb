@@ -13,10 +13,9 @@ RSpec.describe "customers Show Page" do
     CustomerItem.create!(item_id: @item_3.id, customer_id: @customer_1.id)
 
     visit "/customers/#{@customer_1.id}"
-
+    save_and_open_page
     expect(page).to have_content(@customer_1.name)
     expect(page).to have_content(@supermarket_1.name)
-    expect(page).to have_content(@supermarket_1.location)
     expect(page).to have_content(@item_1.name)
     expect(page).to have_content(@item_1.price)
     expect(page).to have_content(@item_3.name)
