@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "customers Show Page" do
+RSpec.describe "Items index page" do
  before(:each) do
     @customer_1 = Customer.create!(name: "Billy")
     @supermarket_1 = Supermarket.create!(name: "Sals Super Market", location: "321 Grocery Grove")
