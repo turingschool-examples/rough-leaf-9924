@@ -1,13 +1,13 @@
 <section class="customer-info">
-  <%= @customer.name %>
+  <h1><%= @customer.name %></h1>
 </section>
 
 <section class="item-info">
   <% @customer.items.each do |item| %>
-    <%= "Item Name: #{item.name}" %>
-    <%= "Item Price: #{item.price}" %>
-    <%= "Supermarket: #{item.supermarket.name}" %>
-    <% end %>
+    <p><%= "Item Name: #{item.name}" %></p>
+    <p><%= "Item Price: #{item.price}" %></p>
+    <p><%= "Supermarket: #{item.supermarket.name}" %></p>
+  <% end %>
 </section>
 
 <section class="add-item">
