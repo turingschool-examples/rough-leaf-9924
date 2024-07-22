@@ -1,0 +1,12 @@
+<h1> Items </h1>
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      Supermarket: <%= item.supermarket.name %>
+      Item: <%= item.name %>
+      Price: <%= item.price %>
+      Customers Purchased: <%= item.customers_purchased %>
+    </li>
+  <% end %>
+</ul>
