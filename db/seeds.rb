@@ -9,12 +9,12 @@
 @supermarket1 = Supermarket.create!(name: "Khabib's Market", location: "Just send me location." )
 @supermarket2 = Supermarket.create!(name: "Acutal Market", location: "12345 Actual Location Avenue ")
 
-@item1 = @supermarket1.items.create!(name: "Tap Like Chicken", price: 100)
-@item2 = @supermarket2.items.create!(name: "Actual Chicken", price: 5)
-@item3 = @supermarket1.items.create!(name: "Bueooogerss", price: 50)
-@item4 = @supermarket2.items.create!(name: "Burgers", price: 10)
-@item5 = @supermarket1.items.create!(name: "Beeaarrzzz", price: 50)
-@item6 = @supermarket2.items.create!(name: "Proper Number Twelve Irish Whiskey", price: 2)
+@item1 = Item.create!(name: "Tap Like Chicken", price: 100, supermarket: @supermarket1)
+@item2 = Item.create!(name: "Actual Chicken", price: 5, supermarket: @supermarket2)
+@item3 = Item.create!(name: "Bueooogerss", price: 50, supermarket: @supermarket1)
+@item4 = Item.create!(name: "Burgers", price: 10, supermarket: @supermarket2)
+@item5 = Item.create!(name: "Beeaarrzzz", price: 50, supermarket: @supermarket1)
+@item6 = Item.create!(name: "Proper Number Twelve Irish Whiskey", price: 2, supermarket: @supermarket2)
 
 
 @customer1 = Customer.create!(name: "Khabib")
