@@ -9,3 +9,9 @@
   </section> 
 <% end %>
 </section>
+
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post, data: { turbo: false } do |form| %>
+  <%= form.label :"Add Item by ID Number" %>
+  <%= form.text_field :item_id %>
+  <%= form.submit :Submit %>
+<% end %>
