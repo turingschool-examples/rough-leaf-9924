@@ -47,11 +47,21 @@ RSpec.describe 'customers show' do
       it 'has a form to add items to this customer by filling a field with the id of an existing customer' do
         visit "/customers/#{@customer1.id}"
 
+        expect(page).to_not have_path("/customers/#{@customer1.id}")
+        expect(page).to_not have_content("Item Name: #{@item2.name}")
+        expect(page).to_not have_content("Item Price: #{@item2.price}")
+        expect(page).to_not have_content("Item Supermarket: #{@item2.supermarket.name}")
+
         expect(page).to have_content("Add another item for this customer:")
 
         fill_in "item_id", with: "2"
 
         click_button "Add Item"
+
+        expect(page).to have_path("/customers/#{@customer1.id}")
+        expect(page).to have_content("Item Name: #{@item2.name}")
+        expect(page).to have_content("Item Price: #{@item2.price}")
+        expect(page).to have_content("Item Supermarket: #{@item2.supermarket.name}")
       end
     end
   end

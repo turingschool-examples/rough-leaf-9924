@@ -8,4 +8,13 @@
       Item Supermarket: <%= item.supermarket.name %> 
     </p>
   <% end %>
+
+  <div id="add-item">
+    <h2> Add another item for this customer: </h2>
+    <%= form_with url: "/applications/#{@application.id}", method: :get, local: true do |form| %>
+      <h3> <%= form.label :item_id %> </h3> 
+      <%= form.number_field :item_id %>
+      <h4> <%= form.submit "Add Item" %> </h4>
+    <% end %>
+  </div>
 </div>
