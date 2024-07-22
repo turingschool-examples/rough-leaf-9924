@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   post 'customers/:id/add_item', to: 'customers#add_item', as: 'add_item_customer'
 
+  get '/items', to: 'items#index'
+
   
   # Defines the root path route ("/")
   # root "articles#index"
