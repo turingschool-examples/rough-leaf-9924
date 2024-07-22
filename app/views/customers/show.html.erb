@@ -6,7 +6,16 @@
 <div id = "item-list">
     <ul>
         <% @customers.items.each do |item|%>
-            <li><%= item.name %> - Price: <%= item.price %> - Supermarket: <%= item.supermarket.name %></p>
+            <li><%= item.name %> - Price: <%= item.price %> - Supermarket: <%= item.supermarket.name %></li>
         <% end %>
     </ul>
 </div>
+
+<h2>Add Item to Customer</h2>
+<%= form_with url: "/customers/#{@customers.id}", method: :post, data: {turbo: false} do |form|%>
+    <div id = "form-item">
+        <%= form.label :item_id %>
+        <p><%= form.text_field :item_id %></p>
+        <%= form.submit "Add Item"%>
+    </div>    
+<% end %>
