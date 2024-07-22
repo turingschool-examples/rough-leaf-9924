@@ -9,3 +9,12 @@
     <%= "Supermarket: #{item.supermarket.name}" %>
     <% end %>
 </section>
+
+<section class="add-item">
+    <%= form_with url: "/customer_items", method: :post, data: {turbo:false} do |form| %>
+      <%= form.hidden_field :customer_id, value: @customer.id %>
+      <%= form.label :item_id %>
+      <%= form.text_field :item_id %>
+      <%= form.submit "Add Item" %>
+      <% end %>
+</section>

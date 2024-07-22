@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/customers/:id", to: "customers#show"
+  patch "/customers/:id", to: "customers#update"
+
+  post "/customer_items", to: "customer_items#create"
 
 end
