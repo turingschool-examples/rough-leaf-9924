@@ -34,21 +34,21 @@ RSpec.describe "the customer show page" do
     expect(page).to have_content(@customer1.name)
 
     within("#item-#{@item1.id}") do
-      expect(page).to have_content(@item1.name)
-      expect(page).to have_content(@item1.price)
-      expect(page).to have_content(@supermarket1.name)
+      expect(page).to have_content("Item: #{@item1.name}")
+      expect(page).to have_content("Price: $#{@item1.price}")
+      expect(page).to have_content("Supermarket Name: #{@supermarket1.name}")
     end
 
     within("#item-#{@item2.id}") do
-      expect(page).to have_content(@item2.name)
-      expect(page).to have_content(@item2.price)
-      expect(page).to have_content(@supermarket1.name)
+      expect(page).to have_content("Item: #{@item2.name}")
+      expect(page).to have_content("Price: $#{@item2.price}")
+      expect(page).to have_content("Supermarket Name: #{@supermarket1.name}")
     end
 
     within("#item-#{@item3.id}") do
-      expect(page).to have_content(@item3.name)
-      expect(page).to have_content(@item3.price)
-      expect(page).to have_content(@supermarket1.name)
+      expect(page).to have_content("Item: #{@item3.name}")
+      expect(page).to have_content("Price: $#{@item3.price}")
+      expect(page).to have_content("Supermarket Name: #{@supermarket1.name}")
     end
 
     expect(page).to_not have_content(@customer2.name)
