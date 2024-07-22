@@ -10,3 +10,12 @@
         </li>
     <% end %>
 </ul>
+
+<h2> Add Item: </h2>
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post do %>
+    <div>
+        <%= label_tag :item_id, "Item ID" %>
+        <%= text_field_tag :item_id %>
+    </div>
+    <%= submit_tag "Add Item" %>
+<% end %>
