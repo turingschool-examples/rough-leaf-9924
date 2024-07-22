@@ -9,7 +9,7 @@ RSpec.describe "Customer Show page" do
     customer.items << [item1, item2]
 
     visit "/customers/#{customer.id}"
-
+    
     expect(page).to have_content("Sally")
     expect(page).to have_content("Banana")
     expect(page).to have_content("$1")
