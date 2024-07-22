@@ -44,11 +44,21 @@ RSpec.describe 'customers show' do
         # end
       end
 
-      xit 'total cost of ingredients' do
-        
-        visit "/recipes/#{@recipe2.id}"
+      it 'has a form to add items to this customer by filling a field with the id of an existing customer' do
+        visit "/customers/#{@customer1.id}"
 
-        expect(page).to have_content("Total Cost: 19")
+        expect(page).to_not have_content("Item Name: #{@item2.name}")
+        expect(page).to_not have_content("Item Supermarket: #{@item2.supermarket.name}")
+
+        expect(page).to have_content("Add another item for this customer:")
+
+        fill_in "item", with: "2"
+        save_and_open_page
+        click_button "Add Item"
+
+        expect(page).to have_current_path("/customers/#{@customer1.id}")
+        expect(page).to have_content("Item Name: #{@item2.name}")
+        expect(page).to have_content("Item Supermarket: #{@item2.supermarket.name}")
       end
     end
   end
