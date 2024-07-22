@@ -1,4 +1,3 @@
 class Customer < ApplicationRecord
-  has_many :items
-  belongs_to :item
+  has_and_belongs_to_many :items
 end
