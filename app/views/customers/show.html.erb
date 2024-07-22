@@ -1,12 +1,12 @@
 <h1><%= @customer.name %></h1>
-
-<h2>Items</h2>
 <ul>
-  <% @items.each do |item| %>
-    <li>
-      <strong>Name:</strong> <%= item.name %> <br>
-      <strong>Price:</strong> $<%= item.price %> <br>
-      <strong>Supermarket:</strong> <%= item.supermarket.name %>
-    </li>
+  <% @customer.items.each do |item| %>
+    <li><%= "#{item.name} - $#{item.price} (From: #{item.supermarket.name})" %></li>
   <% end %>
 </ul>
+
+<%= form_with url: add_item_customer_path(@customer), method: :post, local: true, id: 'new_item' do %>
+  <label for="item_id">Item ID</label>
+  <%= text_field_tag :item_id %>
+  <%= submit_tag 'Add Item' %>
+<% end %>

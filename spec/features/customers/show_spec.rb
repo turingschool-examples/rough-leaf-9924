@@ -20,4 +20,16 @@ RSpec.describe 'Customer show page', type: :feature do
     expect(page).to have_content('Apple')
     expect(page).to have_content('$2')
   end
+
+  it "has a form to add an item to a customer" do
+    visit customer_path(@customer1)
+
+    within("#new_item") do
+      fill_in 'Item ID', with: @item1.id
+      click_button 'Add Item'
+    end
+
+    expect(current_path).to eq(customer_path(@customer1))
+    expect(page).to have_content("Banana - $1 (From: Corner Market)")
+  end
 end
