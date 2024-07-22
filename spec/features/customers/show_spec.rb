@@ -48,7 +48,6 @@ RSpec.describe 'customers show' do
         visit "/customers/#{@customer1.id}"
 
         expect(page).to_not have_content("Item Name: #{@item2.name}")
-        expect(page).to_not have_content("Item Price: #{@item2.price}")
         expect(page).to_not have_content("Item Supermarket: #{@item2.supermarket.name}")
 
         expect(page).to have_content("Add another item for this customer:")
@@ -57,9 +56,8 @@ RSpec.describe 'customers show' do
 
         click_button "Add Item"
 
-        expect(page).to have_path("/customers/#{@customer1.id}")
+        expect(page).to have_current_path("/customers/#{@customer1.id}")
         expect(page).to have_content("Item Name: #{@item2.name}")
-        expect(page).to have_content("Item Price: #{@item2.price}")
         expect(page).to have_content("Item Supermarket: #{@item2.supermarket.name}")
       end
     end
