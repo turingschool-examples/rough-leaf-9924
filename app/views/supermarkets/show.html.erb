@@ -1,0 +1,9 @@
+<h1> <%= @supermarkets.name %> </h1>
+
+<div id = "supermarket-main">
+    <%= @supermarkets.unique_customers.each do |customer| %>
+        <div id = "supermarket-customers">
+            <p> <%= customer.name %> </p>
+        </div>
+    <% end %>
+</div>
