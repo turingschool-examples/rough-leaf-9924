@@ -1,0 +1,8 @@
+<section class="item-info">
+  <% @item.each do |item| %>
+    <p><%= "Item Name: #{item.name}" %></p>
+    <p><%= "Item Price: #{item.price}" %></p>
+    <p><%= "Supermarket: #{item.supermarket.name}" %></p>
+    <p><%= "Customer Purchase Count: #{item.purchase_number}" %></p>
+  <% end %>
+</section>

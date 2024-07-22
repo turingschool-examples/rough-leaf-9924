@@ -1,0 +1,28 @@
+require 'rails_helper'
+
+RSpec.describe "items index page" do 
+  it "displays all items' name, price, supermarket, and number of customers bought items" do 
+    kroger = Supermarket.create!(name: 'Kroger', location: '123 4th St., Nashville, TN 56789')
+    leah = Customer.create!(name: 'Leah')
+    millie = Customer.create!(name: 'Millie')
+    food = kroger.items.create!(name: 'Kibble', price: 20)
+    treat = kroger.items.create!(name: 'Bones', price: 10)
+    CustomerItem.create!(customer: leah, item: food)
+    CustomerItem.create!(customer: leah, item: treat)
+    CustomerItem.create!(customer: millie, item: food)
+
+    visit "/items"
+
+    within ".item-info" do
+      expect(page).to have_content("Item Name: #{food.name}")
+      expect(page).to have_content("Item Price: #{food.price}")
+      expect(page).to have_content("Supermarket: #{food.supermarket.name}")
+      expect(page).to have_content("Customer Purchase Count: #{food.purchase_number}")
+
+      expect(page).to have_content("Item Name: #{treat.name}")
+      expect(page).to have_content("Item Price: #{treat.price}")
+      expect(page).to have_content("Supermarket: #{treat.supermarket.name}")
+      expect(page).to have_content("Customer Purchase Count: #{treat.purchase_number}")
+    end
+  end
+end
