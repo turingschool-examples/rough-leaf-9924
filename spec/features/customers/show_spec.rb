@@ -41,7 +41,7 @@ RSpec.describe "customers Show Page" do
     click_button "Add Item"
 
     expect(current_path).to eq "/customers/#{@customer_1.id}"
-
+  
     expect(page).to have_content(@item_2.name)
     expect(page).to have_content(@item_2.price)
     expect(page).to_not have_content(@item_4.name)
