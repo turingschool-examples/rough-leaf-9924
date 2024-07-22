@@ -3,7 +3,7 @@ class CustomerItemsController < ApplicationController
   end
 
   def create 
-    CustomerItem.create(id: params[:id], item_id: params[:item_id])
+    CustomerItem.create(customer_id: params[:id], item_id: params[:item])
 
     redirect_to "/customers/#{params[:id]}"
   end

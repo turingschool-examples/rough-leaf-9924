@@ -52,7 +52,7 @@ RSpec.describe 'customers show' do
 
         expect(page).to have_content("Add another item for this customer:")
 
-        fill_in "item_id", with: "2"
+        fill_in "item", with: "2"
         save_and_open_page
         click_button "Add Item"
 

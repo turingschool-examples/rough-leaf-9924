@@ -12,8 +12,8 @@
   <div id="add-item">
     <h2> Add another item for this customer: </h2>
     <%= form_with url: "/customers/#{@customer.id}/items", method: :post, local: true do |form| %>
-      <p> <%= form.label :item_id %> </p> 
-      <p> <%= form.number_field :item_id %> </p>
+      <p> <%= form.label :item %> </p> 
+      <p> <%= form.number_field :item %> </p>
       <p> <%= form.submit "Add Item" %> </p>
     <% end %>
   </div>
